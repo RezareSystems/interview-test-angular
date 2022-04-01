@@ -1,0 +1,24 @@
+.inputlabel{
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.resetBtn{
+    margin-left: 10px;
+}
+
+.email{
+    margin-left: 32px;
+}
+
+.major{
+    margin-left: 29px;
+}
+
+.avg {
+    margin-left: 15px;
+}
+
+.buttonControls{
+    margin-top: 20px;
+}

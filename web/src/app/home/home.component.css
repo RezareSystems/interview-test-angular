@@ -1,0 +1,13 @@
+.greenBg{
+    color: green !important;
+}
+.orangeBg{
+    color: orange !important;
+}
+.redBg{
+    color: red !important;
+}
+
+.deleteStud{
+    cursor: pointer;
+}

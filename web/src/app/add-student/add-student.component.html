@@ -1,0 +1,29 @@
+<h1 id="tableLabel">Add New Student</h1>
+    <div>
+        <label class="inputlabel">First Name:</label>
+        <input class ="textbox" type="text" maxlength="32" [(ngModel)] = "fname"/>
+    </div>
+    <div>
+        <label class="inputlabel">Last Name:</label>
+        <input class ="textbox" type="text" maxlength="32" [(ngModel)]= "lname"/>
+    </div>
+    <div>
+        <label class="inputlabel email">Email:</label>
+        <input class ="textbox" type="text" maxlength="32" [(ngModel)]= "email"/>
+    </div>
+    <div>
+        <label class="inputlabel major">Major:</label>
+        <input class ="textbox" type="text" maxlength="32" [(ngModel)]= "major"/>
+    </div>
+    <div>
+        <label class="inputlabel avg">Average:</label>
+        <input class ="textbox" type="text" maxlength="32" [(ngModel)] = "gradeavg"/>
+    </div>
+    <div class="buttonControls">
+        <button class="btn btn-primary btn-darkblue" (click)="save()">
+            Save
+        </button>
+        <button class="btn btn-primary btn-darkblue resetBtn" (click)="resetFormFields()">
+            Reset
+        </button>
+    </div>

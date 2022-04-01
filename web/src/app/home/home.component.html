@@ -5,18 +5,27 @@
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="students">
   <thead>
     <tr>
+      <th>Studet ID</th>
       <th>Firstname</th>
       <th>Lastname</th>
       <th>Email</th>
       <th>Major</th>
+      <th>AverageGrade</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let student of students">
-      <td>{{ student.firstName }}</td>
-      <td>{{ student.lastName }}</td>
+      <td>{{student.id}}</td>
+      <td>{{ student.firstName | titlecase }}</td>
+      <td>{{ student.lastName | titlecase }}</td>
       <td>{{ student.email }}</td>
-      <td>{{ student.major }}</td>
+      <td>{{ student.major}}</td>
+      <td *ngIf="student.averageGrade > 80" class="greenBg">{{student.averageGrade}}</td>
+      <td *ngIf="student.averageGrade < 80 && student.averageGrade > 50" class="orangeBg">{{student.averageGrade}}</td>
+      <td *ngIf="student.averageGrade < 50" class="redBg">{{student.averageGrade}}</td>
+      <td>
+        <a class="deleteStud" (click) = "deleteStudent(student)">Delete</a>
+      </td>
     </tr>
   </tbody>
 </table>
