@@ -1,9 +1,6 @@
 ﻿using StudentApi.Models.Students;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentApi.Services
 {
@@ -15,25 +12,32 @@ namespace StudentApi.Services
         {
             students.Add(new Student
             {
+                StudentId = 1,
                 FirstName = "Marty",
                 LastName = "McFly",
                 Email = "back.future@test.com",
-                Major = "History"
-            });
-
-            students.Add(new Student {
-                FirstName = "Emmett",
-                LastName = "Brown",
-                Email = "dr.brown@test.com",
-                Major = "Physics"
+                Major = "History",
+                Average = 50
             });
 
             students.Add(new Student
             {
+                StudentId = 2,
+                FirstName = "Emmett",
+                LastName = "Brown",
+                Email = "dr.brown@test.com",
+                Major = "Physics",
+                Average = 60
+            });
+
+            students.Add(new Student
+            {
+                StudentId = 3,
                 FirstName = "Biff",
                 LastName = "Tannen",
                 Email = "biff@test.com",
-                Major = "PE"
+                Major = "PE",
+                Average = 70
             });
         }
 
@@ -45,7 +49,8 @@ namespace StudentApi.Services
         /// <exception cref="NotImplementedException"></exception>
         public bool AddStudent(Student student)
         {
-            throw new NotImplementedException();
+            students.Add(student);
+            return true;
         }
 
         /// <summary>
@@ -56,7 +61,7 @@ namespace StudentApi.Services
         /// <exception cref="NotImplementedException"></exception>
         public bool DeleteStudent(Student student)
         {
-            throw new NotImplementedException();
+            return students.Remove(student);
         }
 
         /// <summary>

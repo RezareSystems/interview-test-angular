@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StudentApi.Models.Students
+﻿namespace StudentApi.Models.Students
 {
     public class Student
     {
-        public string FirstName { get; set; }
+        public long StudentId { get; set; } = 0;
 
-        public string LastName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
 
-        public string Email { get; set; }
+        public string LastName { get; set; } = string.Empty;
 
-        public string Major { get; set; }
+        public string Email { get; set; } = string.Empty;
+
+        public string Major { get; set; } = string.Empty;
+
+        public double Average { get; set; } = 0;
     }
 }
