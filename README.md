@@ -36,16 +36,21 @@ The code in this repository will compile and run on Windows, macOS and Linux.
 > As you complete each item in the list below, please ensure that you mark it off by changing the `[]` to a `[x]`.  
 > Please ensure that you record your start and finish time (in local time, using ISO timestamps at the bottom of this README).
 > 
-- [ ] Add to the student their average grade and flow it through from the API to the frontend
-- [ ] Add a page to the frontend to allow students to be added
-- [ ] Add an endpoint to the API to allow students to be added
-- [ ] Implement the `Add` method of the `IStudentService`
-- [ ] Style the display of the average grade so that it has three colorations:
+- [x] Add to the student their average grade and flow it through from the API to the frontend
+- [x] Add a page to the frontend to allow students to be added
+- [x] Add an endpoint to the API to allow students to be added
+- [x] Implement the `Add` method of the `IStudentService`
+- [x] Style the display of the average grade so that it has three colorations:
   - Green: average grade greater than 80%
   - Orange: average grade less than 80% and greater than 50%
   - Red: average grade less than 50%
 
 Extras for if you have time:
-- [ ] Implement the `Delete` method of `IStudentService`
-- [ ] Add delete endpoint to the API
-- [ ] Add delete functionality to the frontend
+- [x] Implement the `Delete` method of `IStudentService`
+- [x] Add delete endpoint to the API
+- [x] Add delete functionality to the frontend
+
+Name: Ryan Joseph Torrado
+Date: May 11 2022
+Start Time: 01:00
+End Time: 02:06

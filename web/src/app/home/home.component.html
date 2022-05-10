@@ -2,6 +2,7 @@
 
 <p *ngIf="!students"><em>Loading...</em></p>
 
+<button type="button" class="btn btn-primary" (click)="openPopup(true)">Add Student</button><br/><br/>
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="students">
   <thead>
     <tr>
@@ -9,6 +10,8 @@
       <th>Lastname</th>
       <th>Email</th>
       <th>Major</th>
+      <th>Average</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +20,49 @@
       <td>{{ student.lastName }}</td>
       <td>{{ student.email }}</td>
       <td>{{ student.major }}</td>
+      <td [ngClass]="{'red': student.average <= 50, 'green': student.average >= 80, 'orange': student.average < 80 && student.average > 50}">{{ student.average }}%</td>
+      <td><button type="button" class="btn btn-primary" (click)="onClickEdit(student)">Edit</button>&nbsp;<button type="button" class="btn btn-danger" (click)="onClickDelete(student)">Delete</button></td>
     </tr>
   </tbody>
 </table>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">New Student</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>First Name</label>
+          <input id="firstName" [(ngModel)]="student.firstName" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input id="lastName" [(ngModel)]="student.lastName" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input id="email" [(ngModel)]="student.email" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Major</label>
+          <input id="major" [(ngModel)]="student.major" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Average</label>
+          <input id="average" [(ngModel)]="student.average" type="number" min="0" class="form-control" numbersOnly>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="onClickAdd(true)" *ngIf="isNew">Save</button>
+        <button type="button" class="btn btn-success" (click)="onClickAdd(false)" *ngIf="!isNew">Update</button>
+        <button type="button" class="btn btn-danger" (click)="closePopup()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
