@@ -16,6 +16,6 @@ namespace StudentApi.Models.Students
 
         public string Major { get; set; }
 
-        public string AverageGrade { get; set; }
+        public int AverageGrade { get; set; }
     }
 }
