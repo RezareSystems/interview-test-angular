@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Student } from '../home/home.component';
 
 @Component({
   selector: 'app-add-student',
@@ -6,8 +8,21 @@ import { Component } from '@angular/core';
 })
 export class AddStudentComponent {
     studentFormData: Object = {};
+    httpClient: HttpClient;
+    baseUrl: string;
+  
+    constructor(httpClient: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+      this.httpClient = httpClient;
+      this.baseUrl = baseUrl;
+    }
   
     public handleSubmit(studentFormData) {
         console.log(studentFormData);
+        this.httpClient
+            .post<Student>(this.baseUrl + 'Students/Add', studentFormData)
+            .subscribe(
+                result => console.error(result),
+                error => console.error(error)
+            );
     }
 }

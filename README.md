@@ -38,7 +38,7 @@ The code in this repository will compile and run on Windows, macOS and Linux.
 > 
 - [x] Add to the student their average grade and flow it through from the API to the frontend
 - [x] Add a page to the frontend to allow students to be added
-- [ ] Add an endpoint to the API to allow students to be added
+- [x] Add an endpoint to the API to allow students to be added
 - [ ] Implement the `Add` method of the `IStudentService`
 - [ ] Style the display of the average grade so that it has three colorations:
   - Green: average grade greater than 80%

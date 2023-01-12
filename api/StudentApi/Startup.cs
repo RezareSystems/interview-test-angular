@@ -21,6 +21,8 @@ namespace StudentApi
 
         public IConfiguration Configuration { get; }
 
+        private string _allowSpecificOrigins = "_AllowSpecificOrigins";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -38,6 +40,20 @@ namespace StudentApi
             services.AddSwaggerGen();
 
             services.AddSingleton<IStudentsService, StudentsService>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    _allowSpecificOrigins,
+                    policy =>
+                    {
+                        policy
+                            .WithOrigins("http://localhost:4200")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    }
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +76,7 @@ namespace StudentApi
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
                 options.RoutePrefix = string.Empty;
             });
-            app.UseCors();
+            app.UseCors(_allowSpecificOrigins);
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

@@ -19,7 +19,7 @@ namespace StudentApi.Services
                 LastName = "McFly",
                 Email = "back.future@test.com",
                 Major = "History",
-                AverageGrade = "25"
+                AverageGrade = 25
             });
 
             students.Add(new Student {
@@ -27,7 +27,7 @@ namespace StudentApi.Services
                 LastName = "Brown",
                 Email = "dr.brown@test.com",
                 Major = "Physics",
-                AverageGrade = "50"
+                AverageGrade = 50
             });
 
             students.Add(new Student
@@ -36,7 +36,7 @@ namespace StudentApi.Services
                 LastName = "Tannen",
                 Email = "biff@test.com",
                 Major = "PE",
-                AverageGrade = "75"
+                AverageGrade = 75
             });
         }
 
