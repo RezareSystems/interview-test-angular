@@ -18,7 +18,17 @@
       <td>{{ student.lastName }}</td>
       <td>{{ student.email }}</td>
       <td>{{ student.major }}</td>
-      <td>{{ student.averageGrade }}</td>
+      <td>
+        <p *ngIf="student.averageGrade > 80" class="green">
+          {{ student.averageGrade }}
+        </p>
+        <p *ngIf="student.averageGrade < 80 && student.averageGrade >= 50 " class="orange">
+          {{ student.averageGrade }}
+        </p>
+        <p *ngIf="student.averageGrade < 50" class="red">
+          {{ student.averageGrade }}
+        </p>
+      </td>
     </tr>
   </tbody>
 </table>
