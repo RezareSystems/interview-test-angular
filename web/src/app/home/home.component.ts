@@ -21,4 +21,5 @@ interface Student {
   lastName: string;
   email: string;
   major: string;
+  averageGrade: string;
 }
