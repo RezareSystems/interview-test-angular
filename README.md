@@ -20,7 +20,9 @@ Please enter/replace your details below.
 | Name | John Shortland |
 | Date | 2023-01-12 |
 | Start Time | 14:00 |
-| Finish Time | 16:00 |
+| Interruption Time | 14:51 - 16:11 |
+| Finish Time | 17:21 |
+| Actual Time | 2h 11 m |
 
 ## Requirements
 In order to complete this test you will need the following tools:
