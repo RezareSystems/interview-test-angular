@@ -47,7 +47,13 @@ namespace StudentApi.Controllers
         [HttpPost("Add")]
         public async Task<bool> Add([FromBody] Student student)
         {
-            return await Task.Run(() => true);
+            AddStudentRequest studentRequest = new AddStudentRequest
+            {
+                Student = student
+            };
+            var response = await Mediator.Send(studentRequest);
+
+            return response;
         }
     }
 }

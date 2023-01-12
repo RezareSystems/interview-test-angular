@@ -15,6 +15,7 @@ namespace StudentApi.Services
         {
             students.Add(new Student
             {
+                Id = 1,
                 FirstName = "Marty",
                 LastName = "McFly",
                 Email = "back.future@test.com",
@@ -23,6 +24,7 @@ namespace StudentApi.Services
             });
 
             students.Add(new Student {
+                Id = 2,
                 FirstName = "Emmett",
                 LastName = "Brown",
                 Email = "dr.brown@test.com",
@@ -32,6 +34,7 @@ namespace StudentApi.Services
 
             students.Add(new Student
             {
+                Id = 3,
                 FirstName = "Biff",
                 LastName = "Tannen",
                 Email = "biff@test.com",
@@ -48,7 +51,22 @@ namespace StudentApi.Services
         /// <exception cref="NotImplementedException"></exception>
         public bool AddStudent(Student student)
         {
-            throw new NotImplementedException();
+            var maxStudentId = students.Max(s => s.Id);
+            var newStudentId = ++maxStudentId;
+
+            students.Add(new Student
+            {
+                Id = newStudentId,
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                Email = student.Email,
+                Major = student.Major,
+                AverageGrade = student.AverageGrade
+            });
+
+            var latestMaxStudentId = students.Max(s => s.Id);
+
+            return latestMaxStudentId == newStudentId;
         }
 
         /// <summary>
