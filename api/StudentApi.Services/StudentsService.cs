@@ -18,14 +18,16 @@ namespace StudentApi.Services
                 FirstName = "Marty",
                 LastName = "McFly",
                 Email = "back.future@test.com",
-                Major = "History"
+                Major = "History",
+                AverageGrade=85
             });
 
             students.Add(new Student {
                 FirstName = "Emmett",
                 LastName = "Brown",
                 Email = "dr.brown@test.com",
-                Major = "Physics"
+                Major = "Physics",
+                AverageGrade = 50.5
             });
 
             students.Add(new Student
@@ -33,7 +35,8 @@ namespace StudentApi.Services
                 FirstName = "Biff",
                 LastName = "Tannen",
                 Email = "biff@test.com",
-                Major = "PE"
+                Major = "PE",
+                AverageGrade = 49
             });
         }
 
@@ -45,7 +48,24 @@ namespace StudentApi.Services
         /// <exception cref="NotImplementedException"></exception>
         public bool AddStudent(Student student)
         {
-            throw new NotImplementedException();
+            //validating whether the same student is alredy available
+            var results = students.FindAll(x => x.FirstName == student.FirstName
+                    && x.LastName == student.LastName && student.Major == x.Major);
+            if (results.Count > 0)
+            {
+                return false;
+            }
+
+            students.Add(new Student
+            {
+                Email = student.Email,
+                AverageGrade = student.AverageGrade,
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                Major = student.Major
+            });
+
+            return true;
         }
 
         /// <summary>
@@ -56,7 +76,26 @@ namespace StudentApi.Services
         /// <exception cref="NotImplementedException"></exception>
         public bool DeleteStudent(Student student)
         {
-            throw new NotImplementedException();
+            var results = students.FindAll(x => x.FirstName == student.FirstName
+                    && x.LastName == student.LastName
+                    && student.Major == x.Major
+                    && student.Email == x.Email
+                    && student.AverageGrade == x.AverageGrade);
+            if (results.Count == 0)
+            {
+                return false;
+            }
+
+            students.Remove(new Student
+            {
+                Email = student.Email,
+                AverageGrade = student.AverageGrade,
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                Major = student.Major
+            });
+
+            return true;
         }
 
         /// <summary>

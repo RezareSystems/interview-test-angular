@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   public students: Student[];
@@ -21,4 +22,5 @@ interface Student {
   lastName: string;
   email: string;
   major: string;
+  averageGrade: number;
 }

@@ -1,0 +1,11 @@
+.average-grade {
+    color: green;
+  }
+  
+.below-80 {
+    color: orange;
+  }
+  
+.below-50 {
+    color: red;
+  }

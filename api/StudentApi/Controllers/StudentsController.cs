@@ -39,5 +39,46 @@ namespace StudentApi.Controllers
 
             return reponse.Students;
         }
+
+        /// <summary>
+        /// Add new student
+        /// </summary>
+        /// <returns>boolean</returns>
+        [HttpPost]
+        public async Task<bool> AddStudents(Student student)
+        {
+            try
+            {
+                var reponse = await Mediator.Send(new AddStudentCommand() { Student = student });
+
+                return reponse.Result;
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return false;
+            }
+            
+        }
+
+        /// <summary>
+        /// Delete existing student
+        /// </summary>
+        /// <returns>boolean</returns>
+        [HttpPost]
+        public async Task<bool> DeleteStudents(Student student)
+        {
+            try
+            {
+                var reponse = await Mediator.Send(new DeleteStudentCommand() { Student = student });
+
+                return reponse.Result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return false;
+            }
+        }
     }
 }

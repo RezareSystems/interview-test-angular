@@ -32,7 +32,7 @@ namespace StudentApi
             services.AddCors(options => options.AddDefaultPolicy(builder =>
             {
 
-                builder.WithOrigins("http://localhost:4200", "http://localhost:8100", "http://localhost");
+                builder.WithOrigins("http://localhost:4200", "http://localhost:8100", "http://localhost").AllowAnyHeader().AllowAnyMethod();
             }));
 
             services.AddSwaggerGen();
